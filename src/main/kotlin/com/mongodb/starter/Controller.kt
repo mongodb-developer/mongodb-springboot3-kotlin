@@ -28,6 +28,12 @@ class Controller(@Autowired val repo: Repo) {
         return repo.insert(restaurant)
     }
 
+
+    @PostMapping("/addByParams")
+    fun postRestaurantAsParams(@RequestBody restaurant: Restaurant): Restaurant {
+        return repo.insert(restaurant)
+    }
+
     @DeleteMapping("/{id}")
     fun deleteRestaurant(@PathVariable("id") id: String) {
         repo.findByRestaurantId(id)?.let {
